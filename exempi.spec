@@ -1,11 +1,11 @@
 Summary:	Implementation of XMP
 Name:		exempi
-Version:	2.2.0
-Release:	2
+Version:	2.2.1
+Release:	1
 License:	BSD-like
 Group:		Libraries
 Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	cb789ba2b6ed78b864cc18cdc87f3b72
+# Source0-md5:	4657deb13b77c2a0e30e144857d2ff7a
 BuildRequires:	autoconf
 BuildRequires:	automake
 # some tests
