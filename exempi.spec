@@ -1,7 +1,7 @@
 Summary:	Implementation of XMP
 Name:		exempi
 Version:	2.2.1
-Release:	1
+Release:	2
 License:	BSD-like
 Group:		Libraries
 Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.gz
@@ -22,6 +22,8 @@ Implementation of Adobe XMP.
 Summary:	Header files for exempi library
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	expat-devel
+Requires:	libstdc++-devel
 
 %description devel
 This is the package containing the header files for exempi library.
@@ -44,6 +46,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -56,11 +60,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/exempi
 %attr(755,root,root) %ghost %{_libdir}/libexempi.so.3
 %attr(755,root,root) %{_libdir}/libexempi.so.*.*.*
+%{_mandir}/man1/exempi.1*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libexempi.so
-%{_libdir}/libexempi.la
 %{_includedir}/exempi-2.0
 %{_pkgconfigdir}/*.pc
 
